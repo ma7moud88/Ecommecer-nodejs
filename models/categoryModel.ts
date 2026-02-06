@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { kMaxLength } from "node:buffer";
 
 // create schema
 const CategorySchema = new mongoose.Schema({
