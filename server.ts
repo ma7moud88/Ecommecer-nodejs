@@ -6,6 +6,8 @@ import ApiError from "./utils/apierror.ts";
 import { connectDB } from "./config/database.ts";
 import categoryRoute from "./routes/categoryRoute.ts";
 import subCategoryRoute from "./routes/subCategoryRoute.ts";
+import brandRoute from "./routes/brandRoute.ts";
+import productRoute from "./routes/productRoute.ts";
 
 dotenv.config({ path: "config.env" });
 connectDB();
@@ -25,8 +27,9 @@ app.get("/", (req, res) => {
 });
 // mount routes
 app.use("/api/category", categoryRoute);
-
 app.use("/api/subcategories", subCategoryRoute);
+app.use("/api/brands", brandRoute);
+app.use("/api/products", productRoute);
 
 app.all("", (req: any, res: any, next: any) => {
   // create error and send it to error handling middleware
